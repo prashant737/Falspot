@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "505161064007",
+    "project_id": "falspot-40cad",
+    "storage_bucket": "falspot-40cad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505161064007:android:834ec330b9251301f0db62",
+        "android_client_info": {
+          "package_name": "com.falspot.falspot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505161064007-eg429qqdfua8d3flj631sps7la2u8htn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxO1Wn0pvRaySwgQEJysGBaLsJntJGrF0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505161064007-eg429qqdfua8d3flj631sps7la2u8htn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

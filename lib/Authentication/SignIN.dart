@@ -1,12 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:falspot/Authentication/SignUP.dart';
 import 'package:falspot/Home/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
-import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'dart:math' as math;
 
-// ignore: camel_case_types
+
 class SignIN extends StatefulWidget {
   @override
   _SignINState createState() => _SignINState();
@@ -42,7 +43,6 @@ void initState() {
   _passwordVisible = false;
 }
 
-// ignore: camel_case_types
 class _SignINState extends State<SignIN> {
   var authc = FirebaseAuth.instance;
   FirebaseFirestore fsconnect = FirebaseFirestore.instance;
@@ -67,263 +67,23 @@ class _SignINState extends State<SignIN> {
   late String password;
   late String username;
   late String usermob;
-
   @override
   Widget build(BuildContext context) {
-    // Figma Flutter Generator Sign_inWidget - FRAME
-
-    return Container(
-        width: 414,
-        height: 896,
-        decoration: BoxDecoration(
-          color: Color.fromRGBO(255, 255, 255, 1),
-        ),
-        child: Stack(children: <Widget>[
-          Positioned(
-              top: 337,
-              left: 0,
-              child: Container(
-                  width: 414,
-                  height: 559,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(40),
-                      topRight: Radius.circular(40),
-                      bottomLeft: Radius.circular(0),
-                      bottomRight: Radius.circular(0),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.25),
-                          offset: Offset(0, 4),
-                          blurRadius: 0)
-                    ],
-                    color: Color.fromRGBO(221, 221, 221, 0.800000011920929),
-                  ))),
-          Positioned(
-              top: 580,
-              left: 41,
-              child: Container(
-                  width: 324,
-                  height: 56,
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                  ),
-                  child: Stack(children: <Widget>[
-                    Positioned(
-                        top: 0,
-                        left: 0,
-                        child: Text(
-                          'Password',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Color.fromRGBO(0, 0, 0, 1),
-                              fontFamily: 'Roboto',
-                              fontSize: 24,
-                              letterSpacing:
-                                  0 /*percentages not used in flutter. defaulting to zero*/,
-                              fontWeight: FontWeight.normal,
-                              height: 1.5 /*PERCENT not supported*/
-                              ),
-                        )),
-                    Positioned(
-                      top: 12,
-                      left: 14,
-                      child: SvgPicture.asset('assets/images/vector.svg',
-                          semanticsLabel: 'vector'),
-                    ),
-                    Positioned(
-                      top: 16,
-                      left: 276,
-                      child: SvgPicture.asset('assets/images/vector.svg',
-                          semanticsLabel: 'vector'),
-                    ),
-                  ]))),
-          Positioned(
-              top: 10,
-              left: 30,
-              child: Container(
-                  width: 371,
-                  height: 21,
-                  child: Stack(children: <Widget>[
-                    Positioned(
-                        top: 0,
-                        left: 0,
-                        child: Container(
-                            width: 371,
-                            height: 21,
-                            child: Stack(children: <Widget>[
-                              Positioned(
-                                  top: 0,
-                                  left: 287,
-                                  child: Container(
-                                      width: 84,
-                                      height: 17.5,
-                                      child: Stack(children: <Widget>[
-                                        Positioned(
-                                          top: 0,
-                                          left: 64,
-                                          child: SvgPicture.asset(
-                                              'assets/images/battery.svg',
-                                              semanticsLabel: 'battery'),
-                                        ),
-                                        Positioned(
-                                          top: 0,
-                                          left: 0,
-                                          child: SvgPicture.asset(
-                                              'assets/images/signal.svg',
-                                              semanticsLabel: 'signal'),
-                                        ),
-                                        Positioned(
-                                          top: 0,
-                                          left: 32,
-                                          child: SvgPicture.asset(
-                                              'assets/images/wifi.svg',
-                                              semanticsLabel: 'wifi'),
-                                        ),
-                                      ]))),
-                              Positioned(
-                                  top: 1,
-                                  left: 0,
-                                  child: Text(
-                                    '12:00',
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(0, 0, 0, 1),
-                                        fontFamily: 'Roboto',
-                                        fontSize: 18,
-                                        letterSpacing: 0,
-                                        fontWeight: FontWeight.normal,
-                                        height: 1.5 /*PERCENT not supported*/
-                                        ),
-                                  )),
-                            ]))),
-                  ]))),
-          Positioned(
-              top: 678,
-              left: 239,
-              child: Text(
-                'New User?',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: Color.fromRGBO(0, 0, 0, 1),
-                    fontFamily: 'Roboto',
-                    fontSize: 14,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1.5 /*PERCENT not supported*/
-                    ),
-              )),
-          Positioned(
-              top: 153.15182495117188,
-              left: 72,
-              child: Transform.rotate(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 150,
+              ),
+              Transform.rotate(
                 angle: 2.689203415252547 * (math.pi / 180),
                 child: Container(
-                    width: 259,
-                    height: 57,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.25),
-                            offset: Offset(0, 4),
-                            blurRadius: 4)
-                      ],
-                      color: Color.fromRGBO(24, 153, 21, 1),
-                    )),
-              )),
-          Positioned(
-              top: 163.37979125976562,
-              left: 91,
-              child: Transform.rotate(
-                angle: 2.690000071498558 * (math.pi / 180),
-                child: Text(
-                  'FalSpot',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      color: Color.fromRGBO(255, 255, 255, 1),
-                      fontFamily: 'Roboto',
-                      fontSize: 30,
-                      letterSpacing:
-                          0 /*percentages not used in flutter. defaulting to zero*/,
-                      fontWeight: FontWeight.normal,
-                      height: 1.5 /*PERCENT not supported*/
-                      ),
-                ),
-              )),
-          Positioned(
-              top: 389,
-              left: 54,
-              child: Text(
-                'WELCOME BACK!',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: Color.fromRGBO(0, 0, 0, 1),
-                    fontFamily: 'Roboto',
-                    fontSize: 24,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1.5 /*PERCENT not supported*/
-                    ),
-              )),
-          Positioned(
-              top: 493,
-              left: 46,
-              child: Container(
-                  width: 324,
-                  height: 56,
+                  width: 259,
+                  height: 57,
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(196, 196, 196, 1),
-                  ))),
-          Positioned(
-              top: 493,
-              left: 46,
-              child: Container(
-                  width: 324,
-                  height: 56,
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                  ),
-                  child: Stack(children: <Widget>[
-                    Positioned(
-                      top: 14,
-                      left: 11.571428298950195,
-                      child: SvgPicture.asset('assets/images/vector.svg',
-                          semanticsLabel: 'vector'),
-                    ),
-                  ]))),
-          Positioned(
-            top: 493,
-            left: 46,
-            child: Text(
-              'Email ID',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Color.fromRGBO(0, 0, 0, 1),
-                  fontFamily: 'Roboto',
-                  fontSize: 24,
-                  letterSpacing:
-                      0 /*percentages not used in flutter. defaulting to zero*/,
-                  fontWeight: FontWeight.normal,
-                  height: 1.5 /*PERCENT not supported*/
-                  ),
-            ),
-          ),
-          Positioned(
-              top: 768,
-              left: 121,
-              child: Container(
-                  width: 155,
-                  height: 44,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
-                    ),
                     boxShadow: [
                       BoxShadow(
                           color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -331,94 +91,259 @@ class _SignINState extends State<SignIN> {
                           blurRadius: 4)
                     ],
                     color: Color.fromRGBO(24, 153, 21, 1),
-                  ))),
-          Positioned(
-              top: 771,
-              left: 121,
-              child: Container(
-                  width: 155,
-                  height: 44,
-                  child: Stack(children: <Widget>[
-                    RaisedButton(
-                        onPressed: () async {
-                          if (password != null && email != null) {
-                            var result;
-                            setState(() {
-                              _islogged = true;
-                            });
-                            try {
-                              result = await authc.signInWithEmailAndPassword(
-                                  email: email, password: password);
-                              print(authc.currentUser!.uid);
-                              var retrived = await fsconnect
-                                  .collection("user")
-                                  .doc(authc.currentUser!.uid)
-                                  .get();
-                              print(retrived.data());
-                              var temp = retrived.data();
-                              Authvar.usermob1 = temp!['mob'];
-                              Authvar.usermail1 = temp['mail'];
-                              Authvar.username1 = temp['Name'];
-                              Authvar.userlast =
-                                  authc.currentUser!.metadata.lastSignInTime;
-                              setState(() {
-                                _islogged = false;
-                              });
-                            } catch (e) {
-                              print(e);
-                              setState(() {
-                                invalid = true;
-                                _islogged = false;
-                              });
-                            }
-                            print(result);
-                            if (result != null) {
-                              setState(() {
-                                _islogged = false;
-                                invalid = false;
-                              });
-                              print('logged in');
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return Dashboard();
-                                }),
-                              );
-                            }
-                          } else {
-                            AppToast("No Credentials found");
-                          }
-                        },
-                        child: Text(
-                          'LOGIN',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              fontFamily: 'Roboto',
-                              fontSize: 18,
-                              letterSpacing:
-                                  0 /*percentages not used in flutter. defaulting to zero*/,
-                              fontWeight: FontWeight.normal,
-                              height: 1.5 /*PERCENT not supported*/
-                              ),
-                        )),
-                  ]))),
-          Positioned(
-              top: 678,
-              left: 38,
-              child: Text(
-                'Forgot password?',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: Color.fromRGBO(0, 0, 0, 1),
-                    fontFamily: 'Roboto',
-                    fontSize: 14,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1.5 /*PERCENT not supported*/
+                  ),
+                  child: Transform.rotate(
+                    angle: 2.890000071498558 * (math.pi / 180),
+                    child: Text(
+                      'FalSpot',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          letterSpacing: 20,
+                          color: Color.fromRGBO(255, 255, 255, 1),
+                          fontFamily: 'Roboto',
+                          fontSize: 30,
+                          fontWeight: FontWeight.normal,
+                          height: 1.5 /*PERCENT not supported*/
+                          ),
                     ),
-              )),
-        ]));
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.15,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.65,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(246, 246, 246, 1),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30)),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Text(
+                      'WELCOME BACK!',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 28,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 25, right: 25),
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        style: TextStyle(color: Colors.black),
+                        cursorColor: Colors.black,
+                        autofocus: false,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(5.0)),
+                            borderSide: BorderSide(
+                              color: Color(0xff0a1c2b),
+                            ),
+                          ),
+                          fillColor: Color(0xff0a1c2b),
+                          hintStyle: TextStyle(color: Colors.grey.shade600),
+                          errorText: invalid ? 'Invalid user' : null,
+                          hintText: 'Mobile Number',
+                          labelText: 'Mobile Number',
+                          prefixIcon: const Icon(
+                            Icons.phone,
+                          ),
+                          // suffixStyle: const TextStyle(color: Colors.black),
+                        ),
+                        onChanged: (value) {
+                          usermob = value;
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 25, right: 25),
+                      child: TextField(
+                        obscureText: !_passwordVisible,
+                        cursorColor: Colors.black,
+                        autofocus: false,
+                        style: TextStyle(color: Colors.black),
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5.0)),
+                              borderSide: BorderSide(
+                                color: Color(0xff0a1c2b),
+                              )),
+                          labelText: 'Password',
+                          hintText: 'Password',
+                          fillColor: Color(0xff0a1c2b),
+                          errorText: invalid ? 'Invalid password' : null,
+                          prefixIcon: const Icon(
+                            Icons.lock,
+                          ),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _passwordVisible
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              // color: Theme.of(context).primaryColorDark,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _passwordVisible = !_passwordVisible;
+                              });
+                            },
+                          ),
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            invalid = false;
+                          });
+                          password = value;
+                        },
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 25),
+                          // ignore: deprecated_member_use
+                          child: FlatButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Forgot password ?',
+                              // textAlign: TextAlign.left,
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * .25,
+                        ),
+                        // ignore: deprecated_member_use
+                        FlatButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return SignUP();
+                              }),
+                            );
+                          },
+                          child: Text(
+                            'New User ?',
+                            // textAlign: TextAlign.right,
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    // ignore: deprecated_member_use
+                    RaisedButton(
+                      padding: EdgeInsets.all(0.0),
+                      onPressed: () async {
+                        // ignore: unnecessary_null_comparison
+                        if (password != null && email != null) {
+                          var result;
+                          setState(() {
+                            _islogged = true;
+                          });
+                          try {
+                            result = await authc.signInWithEmailAndPassword(
+                                email: email, password: password);
+                            print(authc.currentUser!.uid);
+                            var retrived = await fsconnect
+                                .collection("user")
+                                .doc(authc.currentUser!.uid)
+                                .get();
+                            print(retrived.data());
+                            var temp = retrived.data();
+                            Authvar.usermob1 = temp!['mob'];
+                            Authvar.usermail1 = temp['mail'];
+                            Authvar.username1 = temp['Name'];
+                            Authvar.userlast =
+                                authc.currentUser!.metadata.lastSignInTime;
+                            setState(() {
+                              _islogged = false;
+                            });
+                          } catch (e) {
+                            print(e);
+                            setState(() {
+                              invalid = true;
+                              _islogged = false;
+                            });
+                          }
+                          print(result);
+                          if (result != null) {
+                            setState(() {
+                              _islogged = false;
+                              invalid = false;
+                            });
+                            print('logged in');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return Dashboard();
+                              }),
+                            );
+                          }
+                        } else {
+                          AppToast("No Credentials found");
+                        }
+                      },
+                      elevation: 5,
+                      highlightColor: Colors.grey[50],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      //backgroundColor: Colors.black,
+                      child: _islogged
+                          ? Transform.scale(
+                              scale: 0.6,
+                              child: CircularProgressIndicator(
+                                  backgroundColor: Colors.white))
+                          : Ink(
+                              padding: EdgeInsets.only(left: 30, right: 30),
+                              decoration: BoxDecoration(
+                                color: Colors.green,
+                                borderRadius: BorderRadius.circular(30.0),
+                              ),
+                              child: Container(
+                                constraints: BoxConstraints(
+                                    maxWidth: 60.0, minHeight: 37.0),
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "LOGIN",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                            ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
